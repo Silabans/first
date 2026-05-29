@@ -17,7 +17,7 @@ int main() {
     std::cin.tie(NULL);
     
     int n;
-     if (!(cin >> n)) return 0;
+    if (!(cin >> n)) return 0;
 
 
     map<string, SeverityStats> log_database;
@@ -54,8 +54,6 @@ int main() {
             << stats.total_active_bits << " active bits\n";
 
     }
-
-
 
 
     return 0;
