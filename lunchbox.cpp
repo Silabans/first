@@ -2,37 +2,33 @@
 #include <vector>
 #include <algorithm>
 
-using namespace std;
-
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-
+    // Write C++ code here
+    std::ios_base::sync_with_stdio(false);
+    std::cin.tie(NULL);
+    
     int N, m;
-    if(!(cin >> N >> m)) return 0;
-
-    // as the largest m could be is 60 000, integers are sufficient (no need for long long)
-    vector<int> k(m);
-
-
+    if (!(std::cin >> N >> m)) return 0;
+    
+    // there is no need for long long as 30 000 * 60 000 = 1.8 * 10^9, which lower than the limit
+    // for integers -> roughly 2.14 * 10^9
+    std::vector<int> data(m);
+    
     for (int i = 0; i < m; ++i) {
-        cin >> k[i];
+        std::cin >> data[i];
     }
-
-    sort(k.begin(), k.end());
-
-    int count = 0;
+    
+    sort(data.begin(), data.end());
+    
+    int counter = 0;
     for (int i = 0; i < m; ++i) {
-        if ((N - k[i]) < 0) {
-            break;
-        }
-        N -= k[i];
-
-        count++;
-
+        if (N < data[i]) break;
+        
+        N -= data[i];
+        ++counter;
     }
-
-    cout << count + '\n';
+    
+    std::cout << counter << '\n';
 
     return 0;
 }
