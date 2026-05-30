@@ -9,6 +9,11 @@ int main() {
     int n;
     if (!(std::cin >> n)) return 0;
 
+    if (n == 0) {
+        std::cout << 0 << '\n';
+        return 0
+    }
+
     std::vector<int> k(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> k[i];
